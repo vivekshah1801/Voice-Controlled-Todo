@@ -17,7 +17,7 @@ if (SpeechRecognition == undefined)
 
 const reco = new SpeechRecognition();
 reco.continuous = true
-reco.interimResults = false
+reco.interimResults = true
 
 reco.onstart = function(){
     console.log("reco started")
