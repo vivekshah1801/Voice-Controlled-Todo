@@ -1,5 +1,6 @@
 saybutton = document.getElementById("say")
 stopbutton = document.getElementById("stop")
+mic = document.getElementById("mic")
 
 listcontainer = document.getElementById("listcontainer")
 
@@ -39,13 +40,20 @@ reco.onresult = function(data){
 const saystart = function(){
     finalresult = ""
     reco.start()
+    mic.classList.remove("mic-idle");
+    mic.classList.add("mic-active");
+    stopbutton.disabled = false
+    saybutton.disabled = true
 }
 
 const saystop = function(){
     reco.stop()
-    alert(finalresult + "**")
     console.log("Final Result: " + finalresult)
     addToList(finalresult)
+    mic.classList.remove("mic-active");
+    mic.classList.add("mic-idle");
+    stopbutton.disabled = true
+    saybutton.disabled = false
 }
 
 saybutton.onclick = saystart
@@ -57,8 +65,12 @@ function addToList(todotext){
         parent = document.getElementById("listcontainer")
         todo = document.createElement("li")
         todotext = document.createTextNode(todotext)
+        todo.innerHTML = '<i class="fa fa-chevron-right" style="margin-right:10px"></i>'
         todo.append(todotext)
-        parent.append(todo)
-        console.info("Todo added")
+        parent.prepend(todo)
+        console.info("Todo added")   
+    }
+    else{
+        alert("not recog.")
     }
 }
