@@ -67,6 +67,8 @@ function addToList(todotext){
         todotext = document.createTextNode(todotext)
         todo.innerHTML = '<i class="fa fa-chevron-right" style="margin-right:10px"></i>'
         todo.append(todotext)
+        todo.innerHTML += '<i class="fa fa-trash deleteBtn" onclick="this.parentNode.remove()"></i>'
+        todo.classList.add("todo")
         parent.prepend(todo)
         console.info("Todo added")   
     }
@@ -74,3 +76,5 @@ function addToList(todotext){
         alert("not recog.")
     }
 }
+
+

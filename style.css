@@ -55,3 +55,13 @@ button {
 #stop {
   border-radius: 5px;
 }
+
+.todo{
+  width:100%;
+  display: block;
+}
+
+.deleteBtn{
+  float: right;
+  cursor: pointer;
+}
