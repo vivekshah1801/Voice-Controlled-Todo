@@ -65,8 +65,11 @@ function addToList(todotext){
         parent = document.getElementById("listcontainer")
         todo = document.createElement("li")
         todotext = document.createTextNode(todotext)
-        todo.innerHTML = '<i class="fa fa-chevron-right" style="margin-right:10px"></i>'
+        todo.innerHTML = `
+            <i class="fa fa-chevron-right" style="margin-right:10px"></i>
+        `;
         todo.append(todotext)
+        $("<button class='delete-button'>x</button>").appendTo(todo);
         parent.prepend(todo)
         console.info("Todo added")   
     }

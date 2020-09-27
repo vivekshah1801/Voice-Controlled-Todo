@@ -55,3 +55,8 @@ button {
 #stop {
   border-radius: 5px;
 }
+
+.delete-button{
+  float:right;
+  background-color: #f44336;
+}
