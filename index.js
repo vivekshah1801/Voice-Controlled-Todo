@@ -51,7 +51,6 @@ const saystop = function(){
 saybutton.onclick = saystart
 stopbutton.onclick = saystop
 
-
 function addToList(todotext){
     if(todotext!=undefined && todotext.trim()!="")
     {

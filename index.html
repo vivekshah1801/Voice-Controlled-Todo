@@ -43,7 +43,7 @@
             margin: 0px 10px;
           }
 
-		  #say{
+		  #say, #stop{
 			  border-radius: 5px;
 		  }
     </style>
@@ -60,6 +60,7 @@
 <header class="w3-container w3-red w3-center" style="padding:96px 16px ">
   <h1 class="w3-margin w3-jumbo"><i class="fa fa-microphone mic-idle" style="font-size:70px;"></i></h1>
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" id="say">Say</button>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" id="stop">Stop</button>
 </header>
 
 <!-- First Grid
@@ -76,7 +77,7 @@
 <div class="w3-row-padding w3-light-grey w3-padding-24 w3-container">
   <div class="w3-content">
 	<h1 class="w3-padding-12 w3-text-blue w3-center">Your TODOs</h1>
-	<ul class="w3-ul w3-xlarge w3-padding-24">
+	<ul class="w3-ul w3-xlarge w3-padding-24" id="listcontainer">
 		<li>First TODO Item</li>
 		<li>Take up Javascript masterclass</li>
 		<li>Meet john</li>
@@ -105,7 +106,7 @@
     </a>
   </div>
 </footer>
-
+<script src="index.js"></script>
 
 </body>
 </html>
