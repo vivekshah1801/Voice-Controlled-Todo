@@ -2,3 +2,9 @@
     margin: 0px;
     padding: 0px;
 }
+
+body{
+    background: #FFEFBA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
