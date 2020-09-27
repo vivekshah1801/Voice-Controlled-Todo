@@ -1,137 +1,111 @@
 <html>
 <head>
-<<<<<<< Updated upstream
-    <title>Voice Controlled ToDo</title>
-</head>
-<body>
-    <noscript> Enable javascript to use VozList </noscript>
-    <p id="error"></p>
-    <button type="button" id="say" data-listening=False > Say! </button>
-    <button type="button" id="stop" data-listening=False > Stop </button>
+    <title>VozList</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+          body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+          .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+          .fa-anchor,.fa-coffee {font-size:200px}
+          .fa fa-microphone:hover{
+              color: green;
+          }
+          .w3-twothird textarea 
+          {
+              box-sizing: border-box;
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              outline: none;
+              display: block;
+              width: 100%;
+              padding: 7px;
+              border: none;
+              border-bottom: 1px solid #ddd;
+              background: transparent;
+              margin-bottom: 10px;
+              font: 16px Arial, Helvetica, sans-serif;
+              height: 45px;
+          }
 
-    <ul id="listcontainer">
-        <li>First Item</li>
-        <li>Second Item</li>
-        <li>third Item</li>
-    </ul>
-    <script src="./index.js"></script>
-=======
-    <title>Your Voice Our Text</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
-.fa fa-microphone:hover{
-    color: green;
-}
-.w3-twothird textarea 
-{
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    outline: none;
-    display: block;
-    width: 100%;
-    padding: 7px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    background: transparent;
-    margin-bottom: 10px;
-    font: 16px Arial, Helvetica, sans-serif;
-    height: 45px;
-}
-</style>
+          .mic-idle{
+            color:black;
+          }
+
+          .mic-active{
+            color:green;
+          }
+
+          .team{
+            margin: 0px 10px;
+          }
+
+		  #say{
+			  border-radius: 5px;
+		  }
+    </style>
 <body>
 
 <!-- Navbar -->
 <div class="w3-top">
-  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Our Team</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact Us</a>
-  </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  <div class="w3-bar w3-red w3-card w3-center  w3-large">
+    <b class="w3-button w3-padding-large">VozList</b>
   </div>
 </div>
 
 <!-- Header -->
-<header class="w3-container w3-red w3-center" style="padding:128px 16px ">
-  <h1 class="w3-margin w3-jumbo"><i class="fa fa-microphone" style="font-size:70px;color:black"></i></h1>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
+<header class="w3-container w3-red w3-center" style="padding:96px 16px ">
+  <h1 class="w3-margin w3-jumbo"><i class="fa fa-microphone mic-idle" style="font-size:70px;"></i></h1>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" id="say">Say</button>
 </header>
 
-<!-- First Grid -->
+<!-- First Grid
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-twothird">
       <h1 style="margin-right: auto;">Input Text</h1>
       <textarea placeholder="Message" onkeyup="adjust_textarea(this)"></textarea>
     </div>
-
   </div>
-</div>
+</div> -->
 
 <!-- Second Grid -->
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+<div class="w3-row-padding w3-light-grey w3-padding-24 w3-container">
   <div class="w3-content">
-    <div class="w3-third w3-center">
-      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
-    </div>
-
-    <div class="w3-twothird">
-      <h1>Lorem Ipsum</h1>
-      <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
-
-      <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
+	<h1 class="w3-padding-12 w3-text-blue w3-center">Your TODOs</h1>
+	<ul class="w3-ul w3-xlarge w3-padding-24">
+		<li>First TODO Item</li>
+		<li>Take up Javascript masterclass</li>
+		<li>Meet john</li>
+	</ul>
   </div>
 </div>
 
-<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-24">
+	<h1 class="w3-margin w3-xlarge">Start Small & Keep Working</h1>
+	<p class="w3-text-grey w3-container w3-large">
+		We tried to build something that can help you increase your productivity, while you work on your next world-changing idea.
+	</p>
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+<footer class="w3-container w3-padding-12 w3-center w3-opacity">  
   <div class="w3-xlarge w3-padding-32">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
- </div>
- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">We are the Voice of yours</a></p>
+    <a class="team" href="https://github.com/vivekshah1801">
+      <span>Vivek Shah</span>
+    </a> | 
+    <a class="team"  href="https://github.com/raibov">
+      <span>Shweta Kale</span>
+    </a> | 
+    <a class="team"  href="https://github.com/csharshtiwari">
+      <span>Harsh Tiwari</span>
+    </a>
+  </div>
 </footer>
 
-<script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
 
->>>>>>> Stashed changes
 </body>
 </html>
