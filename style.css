@@ -1,10 +1,57 @@
-*{
-    margin: 0px;
-    padding: 0px;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
 }
 
-body{
-    background: #FFEFBA;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.w3-bar,
+h1,
+button {
+  font-family: "Montserrat", sans-serif;
+}
+
+.fa-anchor,
+.fa-coffee {
+  font-size: 200px;
+}
+
+.fa fa-microphone:hover {
+  color: green;
+}
+
+.w3-twothird textarea {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  margin-bottom: 10px;
+  font: 16px Arial, Helvetica, sans-serif;
+  height: 45px;
+}
+
+.mic-idle {
+  color: black;
+}
+
+.mic-active {
+  color: green;
+}
+
+.team {
+  margin: 0px 10px;
+}
+
+#say,
+#stop {
+  border-radius: 5px;
 }
